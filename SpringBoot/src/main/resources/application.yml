@@ -1,0 +1,28 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring?useSSL=true
+    username: spring
+    password: spring
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+  resources:
+    static-locations: classpath:/templates/,classpath:/static/
+  devtools:
+    restart:
+      enabled: true
+jpa:
+  hibernate:
+  ddl-auto: update
+  show-sql: true
+test:
+  myName: wulang
+mybatis:
+  typeAliasesPackage: com.wl.dao
+  mapperLocations: classpath:mybatis/*.xml

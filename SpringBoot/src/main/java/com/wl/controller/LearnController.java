@@ -1,0 +1,21 @@
+package com.wl.controller;
+
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class LearnController {
+
+    @RequestMapping("hello")
+    @ResponseBody
+    public String getHelloWorld(){
+        return "Hello World";
+    }
+
+    @RequestMapping("date")
+    public String date(){
+        return "date";
+    }
+}

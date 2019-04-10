@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="/BootStrap/css/bootstrap.css">
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="/BootStrap/css/bootstrap-theme.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="/BootStrap/js/bootstrap.js"></script>
+</head>
+<body>
+<h2 style="text-align: center;">书籍列表</h2>
+<table class="table" style="width: 70%;margin: 0px auto;">
+    <thead>
+    <tr><td>编号</td><td>书名</td><td>备注</td><td>作者</td><td>售价</td><td>出版日期</td><td>操作</td></tr>
+    </thead>
+        <tbody>
+        <tr th:each="book:${books}">
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.name}"></td>
+            <td th:text="${book.des}"></td>
+            <td th:text="${book.author}"></td>
+            <td th:text="${book.sal}"></td>
+            <td th:text="${book.release}"></td>
+            <td><a th:href="@{/delete/{id}(id=${book.id})}">删除</a><a href="#" class="test" th:attr="bid=${book.id}" data-toggle="modal" data-target="#mymodal">修改</a></td>
+        </tr>
+        </tbody>
+</table>
+<!-- 触发模态弹出窗的元素 -->
+<button type="button" data-toggle="modal" data-target="#mymodal" class="btn btn-primary">点击</button>
+<!-- 模态弹出窗 -->
+<div class="modal fade" id="mymodal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">操作</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline" th:action="@{/edit}" th:object="${Book}"  method="post">
+                    <input type="hidden" name="id" th:value="${id}" id="id"/>
+                    <table>
+                        <tr><td><label for="exampleInputName2">书名：</label></td><td><input type="text" class="form-control" name="name" th:value="${name}" id="name"/></td></tr>
+                        <tr><td><label for="exampleInputName2">作者：</label></td><td><input type="text" class="form-control" name="author" th:value="${author}" id="author"/></td></tr>
+                        <tr><td><label for="exampleInputName2">售价：</label></td><td><input type="text" class="form-control" name="sal" th:value="${sal}" id="sal"/></td></tr>
+                        <tr><td><label for="exampleInputName2">备注</label></td><td><input type="text" class="form-control" name="des" th:value="${des}" id="des"/></td></tr>
+                        <tr><td><div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <input type="submit" value="Submit" class="btn btn-info" />
+                        </div></td></tr>
+                    </table>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</body>
+</html>
