@@ -19,17 +19,11 @@ public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
     private String name;
-    @Column(nullable = true)
-    @CreatedDate
-    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
-    private Date released;
-    @Column
+    @Column(name = "released")
+    private Date times;
     private String des;
-    @Column
     private String author;
-    @Column
     private Double sal;
 
     public Long getId() {
@@ -46,14 +40,6 @@ public class Book implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Date getRelease() {
-        return released;
-    }
-
-    public void setRelease(Date release) {
-        this.released = release;
     }
 
     public String getDes() {
@@ -80,12 +66,20 @@ public class Book implements Serializable {
         this.sal = sal;
     }
 
+    public Date getTimes() {
+        return times;
+    }
+
+    public void setTimes(Date times) {
+        this.times = times;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", release=" + released +
+                ", times=" + times +
                 ", des='" + des + '\'' +
                 ", author='" + author + '\'' +
                 ", sal=" + sal +

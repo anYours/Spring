@@ -11,4 +11,16 @@ public interface BookService {
      * @return
      */
     public List<Book> findAll();
+
+    /**
+     * 删除书籍
+     * @param id
+     */
+    public void deleteBook(Integer id);
+
+    /**
+     * 新增书籍
+     * @param book
+     */
+    public void saveBook(Book book);
 }

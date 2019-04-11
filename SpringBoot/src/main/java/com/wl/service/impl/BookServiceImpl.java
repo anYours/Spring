@@ -22,4 +22,24 @@ public class BookServiceImpl implements BookService {
     public List<Book> findAll() {
         return bookMapper.findAll();
     }
+
+    /**
+     * 删除书籍
+     *
+     * @param id
+     */
+    @Override
+    public void deleteBook(Integer id) {
+        bookMapper.deleteBook(id);
+    }
+
+    /**
+     * 新增书籍
+     *
+     * @param book
+     */
+    @Override
+    public void saveBook(Book book) {
+        bookMapper.saveBook(book);
+    }
 }

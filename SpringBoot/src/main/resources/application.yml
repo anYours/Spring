@@ -1,5 +1,7 @@
 server:
   port: 8081
+  tomcat:
+    uri-encoding: UTF-8
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -17,10 +19,18 @@ spring:
   devtools:
     restart:
       enabled: true
-jpa:
-  hibernate:
-  ddl-auto: update
-  show-sql: true
+  http:
+    encoding:
+      force: true
+      charset: utf-8
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    database: mysql
 test:
   myName: wulang
 mybatis:
