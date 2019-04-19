@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 @Mapper
-public interface BookMapper {
+public interface BookMapper extends com.github.abel533.mapper.Mapper<Book> {
 
     //private Long id;
     //    private String name;

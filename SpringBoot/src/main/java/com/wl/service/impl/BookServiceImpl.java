@@ -1,5 +1,6 @@
 package com.wl.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.wl.dao.BookMapper;
 import com.wl.mod.Book;
 import com.wl.service.BookService;
@@ -41,5 +42,12 @@ public class BookServiceImpl implements BookService {
     @Override
     public void saveBook(Book book) {
         bookMapper.saveBook(book);
+    }
+
+    @Override
+    public List<Book> queryBookByPage(Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Book> books = bookMapper.findAll();
+        return  books;
     }
 }

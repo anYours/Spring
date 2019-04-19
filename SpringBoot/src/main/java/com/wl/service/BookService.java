@@ -23,4 +23,6 @@ public interface BookService {
      * @param book
      */
     public void saveBook(Book book);
+
+    public List<Book> queryBookByPage(Integer pageNum, Integer pageSize);
 }
