@@ -1,0 +1,14 @@
+a:hover{
+    text-decoration: none;
+}
+.hide{
+    display: none;
+}
+nav{
+    display: block;
+    width: 70%;
+    margin: 0px auto;
+}
+.pagination{
+    float: right;
+}
