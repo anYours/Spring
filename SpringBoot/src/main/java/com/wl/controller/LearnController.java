@@ -2,6 +2,7 @@ package com.wl.controller;
 
 import com.wl.mod.Book;
 import com.wl.service.impl.BookServiceImpl;
+import com.wl.service.impl.MailServiceImpl;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,9 @@ public class LearnController {
 
     @Resource
     private BookServiceImpl bookService;
+
+    @Resource
+    private MailServiceImpl mailService;
 
     @RequestMapping("hello")
     @ResponseBody
@@ -37,5 +41,37 @@ public class LearnController {
         model.addAttribute("books", books);
         return "list";
     }
+
+    @RequestMapping("send")
+    @ResponseBody
+    public String sendMsg(){
+        String
+                content
+                =
+                "<html>\n"
+
+                        +
+
+
+                        "<body>\n"
+
+                        +
+
+
+                        "    <h3>hello world ! 这是一封Html邮件!</h3>\n"
+
+                        +
+
+
+                        "</body>\n"
+
+                        +
+
+
+                        "</html>"
+                ;
+        mailService.sendSimpleMail("wul@koal.com", "test simple mail", content);
+        return "success";
+    };
 
 }
