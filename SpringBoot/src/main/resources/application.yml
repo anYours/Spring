@@ -42,7 +42,7 @@ spring:
         max-wait: -1
         max-idle: 8
         min-idle: 0
-    timeout: 5000
+    timeout: 0
   mail:
     host: smtp.163.com
     username: xp_luckly@163.com
