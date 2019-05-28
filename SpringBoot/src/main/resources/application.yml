@@ -48,6 +48,10 @@ spring:
     username: xp_luckly@163.com
     password: mmp123456
     default-encoding: utf-8
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
 mail:
   fromMail:
     addr: xp_luckly@163.com
