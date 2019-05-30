@@ -1,14 +1,11 @@
 package com.wl.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 
 @Controller
 public class UploadController {
@@ -20,13 +17,13 @@ public class UploadController {
 
     @PostMapping("/fileUpload")
     @ResponseBody
-    public String fileUpload(@RequestParam("fileName") MultipartFile file){
+    public String fileUpload(@RequestParam("file") MultipartFile file){
         if(file.isEmpty()){
             return "请选择一个文件上传";
         }
         String filename = file.getOriginalFilename();
         long fileSize = file.getSize();
-        System.out.println("文件名称" + filename + "-------文件大小" + fileSize);
+        System.out.println("文件名称" + filename + "-------文件大小" + fileSize+"B");
         String path = "D:/test";
         File dest = new File(path + "/" + filename);
         if (!dest.getParentFile().exists()) {
@@ -41,5 +38,43 @@ public class UploadController {
             e.printStackTrace();
             return "文件上传失败";
         }
+    }
+
+    @RequestMapping("/fileDownload")
+    @ResponseBody
+    public String fileDownload(HttpServletResponse response){
+        String fileName = "HiSuite_9.0.3.300.zip";
+        String filePath = "D:\\test";
+        File file = new File(filePath +File.separator+fileName);
+        byte[] buff = new byte[1024];
+        BufferedInputStream bis = null;
+        OutputStream os = null;
+        try{
+            os = response.getOutputStream();
+            bis = new BufferedInputStream(new FileInputStream(file));
+            int i = bis.read(buff);
+            while (i != -1) {
+                os.write(buff, 0, buff.length);
+                os.flush();
+                i = bis.read(buff);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return "文件下载失败";
+        }finally {
+
+                try {
+                    if(null != bis){
+                    bis.close();
+                    }
+                    if(null != os){
+                        os.close();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+        }
+        return "文件下载成功";
     }
 }

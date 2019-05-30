@@ -121,6 +121,11 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.abel533</groupId>
+            <artifactId>ECharts</artifactId>
+            <version>3.0.0.4</version>
+        </dependency>
     </dependencies>
 
     <!-- Package as an executable jar -->
