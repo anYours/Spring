@@ -57,35 +57,53 @@ INSERT INTO `book` VALUES ('29', '42', '2019-04-11 00:00:00.000000', '534534', '
 INSERT INTO `book` VALUES ('30', '565', '2019-04-11 00:00:00.000000', '34543', '34', '35', null);
 INSERT INTO `book` VALUES ('31', 'ocmp', '2019-04-11 00:00:00.000000', '21312', '1231', '1231', null);
 
--- ----------------------------
--- Table structure for user
--- ----------------------------
+-- -- ----------------------------
+-- -- Table structure for user
+-- -- ----------------------------
+-- DROP TABLE IF EXISTS `user`;
+-- CREATE TABLE `user` (
+--   `id` int(11) NOT NULL AUTO_INCREMENT,
+--   `name` varchar(200) DEFAULT NULL,
+--   `pwd` varchar(200) DEFAULT NULL,
+--   `userName` varchar(255) DEFAULT NULL,
+--   `age` int(11) DEFAULT NULL,
+--   `birthday` date DEFAULT NULL,
+--   `headImg` varchar(1000) DEFAULT NULL,
+--   `create_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+--   `update_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+--   `del_flag` int(2) DEFAULT NULL,
+--   PRIMARY KEY (`id`)
+-- ) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
+--
+-- -- ----------------------------
+-- -- Records of user
+-- -- ----------------------------
+-- INSERT INTO `user` VALUES ('41', '32432', null, '423', '423', '2017-03-02', '', null, '2019-03-08 13:08:23', '1');
+-- INSERT INTO `user` VALUES ('42', '22', '9eff7916726cf22042abe2e23b3e2bf6', '31', '13', '2017-03-16', '', '2017-03-01 10:09:36', '2017-03-01 10:09:36', '1');
+-- INSERT INTO `user` VALUES ('43', '321', '9eff7916726cf22042abe2e23b3e2bf6', '3123', '11', '2017-03-18', '', '2017-03-01 10:09:45', '2017-03-01 10:09:45', '1');
+-- INSERT INTO `user` VALUES ('44', '11', '9eff7916726cf22042abe2e23b3e2bf6', '212', '21', '2017-03-24', '', '2017-03-01 10:09:54', '2017-03-01 10:09:54', '1');
+-- INSERT INTO `user` VALUES ('45', '3123', '9eff7916726cf22042abe2e23b3e2bf6', '11', '11', '2017-03-24', '', '2017-03-01 10:10:02', '2017-03-01 10:10:02', '1');
+-- INSERT INTO `user` VALUES ('46', '13123', '9eff7916726cf22042abe2e23b3e2bf6', '3123', '1231', '2017-03-24', '', '2017-03-01 10:10:10', '2017-03-01 10:10:10', '1');
+-- INSERT INTO `user` VALUES ('47', '3123', '9eff7916726cf22042abe2e23b3e2bf6', '3123', '132', '2017-03-03', '', '2017-03-01 10:10:17', '2017-03-01 10:10:17', '1');
+-- INSERT INTO `user` VALUES ('48', '312', '9eff7916726cf22042abe2e23b3e2bf6', '312', '312', '2017-03-09', '', '2017-03-01 10:10:26', '2019-03-08 13:07:11', '0');
+-- INSERT INTO `user` VALUES ('49', '3123', '9eff7916726cf22042abe2e23b3e2bf6', '3123', '312', '2017-03-03', '', '2017-03-01 10:10:34', '2017-03-01 10:10:34', '1');
+-- INSERT INTO `user` VALUES ('50', '3123', null, '312', '312', '2017-03-03', '', null, '2019-03-08 13:08:16', '0');
+-- INSERT INTO `user` VALUES ('51', '1321', '9eff7916726cf22042abe2e23b3e2bf6', '321', '321', '2017-03-02', '', '2017-03-01 10:10:49', '2017-03-01 10:10:49', '1');
+
+-- 人员登录注册用到的
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) DEFAULT NULL,
-  `pwd` varchar(200) DEFAULT NULL,
-  `userName` varchar(255) DEFAULT NULL,
-  `age` int(11) DEFAULT NULL,
-  `birthday` date DEFAULT NULL,
-  `headImg` varchar(1000) DEFAULT NULL,
-  `create_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `update_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `del_flag` int(2) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL COMMENT '用户名',
+  `password` varchar(255) DEFAULT NULL COMMENT '密码',
+  `gender` char(50) DEFAULT NULL COMMENT '性别',
+  `phone` varchar(255) DEFAULT NULL COMMENT '号',
+  `trueName` varchar(255) DEFAULT NULL COMMENT '姓名',
+  `birthday` varchar(255) DEFAULT NULL COMMENT '生日',
+  `email` varchar(255) DEFAULT NULL COMMENT '邮箱',
+  `personalBrief` varchar(255) DEFAULT NULL COMMENT '个人简介',
+  `avatarImgUrl` varchar(255) DEFAULT NULL COMMENT '头像url',
+  `recentlyLanded` varchar(255) DEFAULT NULL COMMENT '最近登录时间',
+  `status` int(11) DEFAULT '10' COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of user
--- ----------------------------
-INSERT INTO `user` VALUES ('41', '32432', null, '423', '423', '2017-03-02', '', null, '2019-03-08 13:08:23', '1');
-INSERT INTO `user` VALUES ('42', '22', '9eff7916726cf22042abe2e23b3e2bf6', '31', '13', '2017-03-16', '', '2017-03-01 10:09:36', '2017-03-01 10:09:36', '1');
-INSERT INTO `user` VALUES ('43', '321', '9eff7916726cf22042abe2e23b3e2bf6', '3123', '11', '2017-03-18', '', '2017-03-01 10:09:45', '2017-03-01 10:09:45', '1');
-INSERT INTO `user` VALUES ('44', '11', '9eff7916726cf22042abe2e23b3e2bf6', '212', '21', '2017-03-24', '', '2017-03-01 10:09:54', '2017-03-01 10:09:54', '1');
-INSERT INTO `user` VALUES ('45', '3123', '9eff7916726cf22042abe2e23b3e2bf6', '11', '11', '2017-03-24', '', '2017-03-01 10:10:02', '2017-03-01 10:10:02', '1');
-INSERT INTO `user` VALUES ('46', '13123', '9eff7916726cf22042abe2e23b3e2bf6', '3123', '1231', '2017-03-24', '', '2017-03-01 10:10:10', '2017-03-01 10:10:10', '1');
-INSERT INTO `user` VALUES ('47', '3123', '9eff7916726cf22042abe2e23b3e2bf6', '3123', '132', '2017-03-03', '', '2017-03-01 10:10:17', '2017-03-01 10:10:17', '1');
-INSERT INTO `user` VALUES ('48', '312', '9eff7916726cf22042abe2e23b3e2bf6', '312', '312', '2017-03-09', '', '2017-03-01 10:10:26', '2019-03-08 13:07:11', '0');
-INSERT INTO `user` VALUES ('49', '3123', '9eff7916726cf22042abe2e23b3e2bf6', '3123', '312', '2017-03-03', '', '2017-03-01 10:10:34', '2017-03-01 10:10:34', '1');
-INSERT INTO `user` VALUES ('50', '3123', null, '312', '312', '2017-03-03', '', null, '2019-03-08 13:08:16', '0');
-INSERT INTO `user` VALUES ('51', '1321', '9eff7916726cf22042abe2e23b3e2bf6', '321', '321', '2017-03-02', '', '2017-03-01 10:10:49', '2017-03-01 10:10:49', '1');
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;

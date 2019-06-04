@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><span th:text="${message}"></span>，<span id="page_div" th:text="${time}"></span>秒后跳转到登录页</p>
+</body>
+<script>
+    var time = document.getElementById("page_div").innerText;
+    var url = "/login.html";
+    var id = window.setInterval('doUpdate()', 1000);
+    function doUpdate(){
+        document.getElementById("page_div").innerHTML = '将在'+time ;
+        if(time ==0 ){
+            window.clearInterval(id);
+            window.location = URL;
+        }
+        time --;
+    }
+</script>
+</html>
