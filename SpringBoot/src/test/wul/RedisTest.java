@@ -2,6 +2,7 @@ package wul;
 
 import com.Application;
 import com.wl.bean.User;
+import com.wl.util.RedisUtil;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +12,10 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
 public class RedisTest {
@@ -19,8 +24,8 @@ public class RedisTest {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-    @Autowired
-    private RedisTemplate<String, User> redisTemplate;
+    @Resource
+    private RedisTemplate<String, Object> redisTemplate;
 
     @Test
     public void test(){
@@ -30,18 +35,53 @@ public class RedisTest {
 
     @Test
     public void objectTest(){
-        User user = new User("超人", 20);
-        redisTemplate.opsForValue().set(user.getUserName(), user);
 
-        user = new User("蝙蝠侠", 30);
-        redisTemplate.opsForValue().set(user.getUserName(), user);
+    }
 
-        user = new User("蜘蛛侠", 40);
-        redisTemplate.opsForValue().set(user.getUserName(), user);
+    @Test
+    public void test1(){
+        String key = "超人";
+        boolean cacheExists = RedisUtil.isCacheExists(key);
+        System.out.println(cacheExists);
+    }
 
-        Assert.assertEquals(20, redisTemplate.opsForValue().get("超人").getAge().longValue());
-        Assert.assertEquals(30, redisTemplate.opsForValue().get("蝙蝠侠").getAge().longValue());
-        Assert.assertEquals(40, redisTemplate.opsForValue().get("蜘蛛侠").getAge().longValue());
+    @Test
+    public void test2(){
+        String key = "超人";
+        long time = 23123L;
+        RedisUtil.expire(key, time);
+        long expire = RedisUtil.getExpire(key);
+        System.out.println(expire);
+    }
 
+    @Test
+    public void test3(){
+        String key = "attr";
+        long time = 2313L;
+        Object[] ints = {1, 2, 3, 4};
+        RedisUtil.updateCacheById(key, ints, time);
+    }
+
+    @Test
+    public void test4(){
+        String key = "attr";
+        Object valueByKey = RedisUtil.getValueByKey(key);
+        System.out.println(valueByKey);
+    }
+
+    @Test
+    public void test5(){
+        String key = "list";
+        List<Object> values = new ArrayList<Object>();
+        values.add(1);
+        values.add(2);
+        values.add(3);
+        values.add(4);
+        values.add(5);
+        values.add(6);
+        redisTemplate.opsForList().rightPush(key, values);
+//        List<Object> list = redisTemplate.opsForList().range(key, 0, -1);
+        List<Object> list = redisTemplate.opsForList().range(key, 0, -1);
+        System.out.println(list);
     }
 }

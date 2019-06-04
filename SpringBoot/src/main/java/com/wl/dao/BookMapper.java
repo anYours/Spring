@@ -31,4 +31,5 @@ public interface BookMapper extends com.github.abel533.mapper.Mapper<Book> {
 
     @Insert("INSERT INTO book(name, released, des, author, sal) VALUES (#{name}, #{times}, #{des}, #{author}, #{sal})")
     public void saveBook(Book book);
+
 }

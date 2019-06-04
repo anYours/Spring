@@ -6,6 +6,8 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.wl.mod.Book;
 import com.wl.service.impl.BookServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,8 @@ import java.util.List;
 @Controller
 @RequestMapping("book")
 public class BookController {
+
+    private static final Logger logger = LoggerFactory.getLogger(BookController.class);
     
     @Resource
     private BookServiceImpl bookService;
@@ -47,6 +51,7 @@ public class BookController {
         List<Book> books = bookService.queryBookByPage(pageNum, pageSize);
         PageInfo<Book> bookPageInfo = new PageInfo<Book>(books);
         model.addAttribute("ss", bookPageInfo);
+        logger.info("查询成功");
         return "list";
     }
 }

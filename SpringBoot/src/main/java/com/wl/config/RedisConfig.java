@@ -14,8 +14,8 @@ public class RedisConfig {
 
 
     @Bean
-    public RedisTemplate<String, User> redisTemplate(RedisConnectionFactory redisConnectionFactory){
-        RedisTemplate<String, User> template = new RedisTemplate<String, User>();
+    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory){
+        RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
         template.setConnectionFactory(redisConnectionFactory);
         template.setKeySerializer(new StringRedisSerializer());
         template.setValueSerializer(new RedisObjectSerializer());

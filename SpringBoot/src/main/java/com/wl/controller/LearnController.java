@@ -45,33 +45,15 @@ public class LearnController {
     @RequestMapping("send")
     @ResponseBody
     public String sendMsg(){
-        String
-                content
-                =
-                "<html>\n"
-
-                        +
-
-
-                        "<body>\n"
-
-                        +
-
-
-                        "    <h3>hello world ! 这是一封Html邮件!</h3>\n"
-
-                        +
-
-
-                        "</body>\n"
-
-                        +
-
-
-                        "</html>"
-                ;
+        String content ="<html>\n" + "<body>\n" + "<h3>hello world ! 这是一封Html邮件!</h3>\n" + "</body>\n" + "</html>";
         mailService.sendSimpleMail("wul@koal.com", "test simple mail", content);
         return "success";
     };
+
+    @RequestMapping("hello1")
+    public String hello() throws Exception {
+        throw new Exception("发生错误");
+    }
+
 
 }
