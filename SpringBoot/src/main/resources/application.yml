@@ -76,6 +76,13 @@ mail:
     addr: xp_luckly@163.com
 test:
   myName: wulang
+  secret: ${random.value}
+  number: ${random.int}
+  bignumber: ${random.long}
+  uuid: ${random.uuid}
+  ten: ${random.int(10)}
+  range: ${random.int[1024,65536]}
+
 mybatis:
   config-location: classpath:/mybatis/SqlMapConfig.xml
 

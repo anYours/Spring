@@ -5,17 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-<p><span th:text="${message}"></span>，<span id="page_div" th:text="${time}"></span>秒后跳转到登录页</p>
+<p><span th:text="${message}"></span>，将在<span id="page_div" th:text="${time}"></span>秒后跳转到登录页</p>
 </body>
 <script>
     var time = document.getElementById("page_div").innerText;
-    var url = "/login.html";
+    var url = "/user/index";
     var id = window.setInterval('doUpdate()', 1000);
     function doUpdate(){
-        document.getElementById("page_div").innerHTML = '将在'+time ;
+        document.getElementById("page_div").innerHTML = time ;
         if(time ==0 ){
             window.clearInterval(id);
-            window.location = URL;
+            window.location = url;
         }
         time --;
     }

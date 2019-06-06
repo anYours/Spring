@@ -5,6 +5,7 @@ import com.wl.service.UserService;
 import com.wl.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,14 +18,18 @@ public class UserController {
     private UserServiceImpl userService;
 
     @PostMapping("login")
-    public void login(User user){
-        System.out.println("user = [" + user.toString() + "]");
+    public String login(User user, Model model){
         boolean b = userService.loginIsSuccess(user);
+        int time = 3;
+        String message = "";
         if(b){
-            System.out.println("登录成功");
+            message = "登录成功";
         }else{
-            System.out.println("登录失败");
+            message = "登录失败";
         }
+        model.addAttribute("message", message);
+        model.addAttribute("time", time);
+        return "user/result";
     }
 
     @RequestMapping("index")

@@ -27,6 +27,9 @@ public class RedisTest {
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
+    @Autowired
+    private com.wl.bean.Test test;
+
     @Test
     public void test(){
         stringRedisTemplate.opsForValue().set("aa","11");
@@ -83,5 +86,10 @@ public class RedisTest {
 //        List<Object> list = redisTemplate.opsForList().range(key, 0, -1);
         List<Object> list = redisTemplate.opsForList().range(key, 0, -1);
         System.out.println(list);
+    }
+
+    @Test
+    public void test6(){
+        System.out.println(test.toString());
     }
 }
