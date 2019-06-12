@@ -6,3 +6,8 @@
     类似 @Value 注解方式，使用 @ConfigurationProperties(prefix = "demo.book") 注解标注在类上方可以达到相同的效果。 @ConfigurationProperties 注解的 prefix 是指定属性的参数名称。会匹配到配置文件中 “ demo.book.* ” 结构的属性，星号 “ * ” 是指会一一对应匹配 BookComponent 类的字段名。例如，字段 name 表示书名，会匹配到 demo.book.name 属性值。
     
     @Value 注解方式强制字段必须对应在配置文件， @ConfigurationProperties 注解方式则不是必须的。一般情况下，所有字段应该保证一一对应在配置文件。如果没有属性值对应的话，该字段默认为空， @ConfigurationProperties 注解方式也不会引发任何异常，Spring Boot 推荐使用 @ConfigurationProperties 注解方式获取属性。
+ 
+ - @PropertySource注解
+ 
+    使用外部配置时用到，具体用法如下：
+    @PropertySource("classpath:test_application.yml")
