@@ -1,8 +1,7 @@
 package wul;
 
 import com.Application;
-import com.wl.bean.User;
-import com.wl.util.RedisUtil;
+import com.util.RedisUtil;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +12,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class RedisTest {
     private RedisTemplate<String, Object> redisTemplate;
 
     @Autowired
-    private com.wl.bean.Test test;
+    private com.bean.Test test;
 
     @Test
     public void test(){
@@ -91,5 +91,41 @@ public class RedisTest {
     @Test
     public void test6(){
         System.out.println(test.toString());
+    }
+
+    @Test
+    public void test7(){
+        Integer value = 200;
+        BigDecimal maxValue = BigDecimal.valueOf(1000L);
+        boolean b = new BigDecimal(value.toString()).compareTo(maxValue) != 1;
+        System.out.println(b);
+    }
+
+    public static void main(String[] args) {
+        int[] intArr = {1,6,78,4,5,94,105,3,666,55,88,7};
+        int length = intArr.length;
+        //外层：需要length-1次循环比较
+        for (int i = 0; i < length - 1; i++) {
+            //内层：每次循环需要两两比较的次数，每次比较后，都会将当前最大的数放到最后位置，所以每次比较次数递减一次
+            for (int j = 0; j < length - 1 - i; j++) {
+                if (intArr[j] > intArr[j+1]) {
+                    //交换数组array的j和j+1位置的数据
+                    swap(intArr, j, j+1);
+                }
+            }
+        }
+        System.out.println(intArr);
+    }
+
+    /**
+     * 交换数组array的i和j位置的数据
+     * @param array 数组
+     * @param i 下标i
+     * @param j 下标j
+     */
+    public static void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 }
