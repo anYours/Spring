@@ -1,7 +1,7 @@
 package wul;
 
 import com.Application;
-import com.util.RedisUtil;
+import com.wl.util.RedisUtil;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,7 +28,7 @@ public class RedisTest {
     private RedisTemplate<String, Object> redisTemplate;
 
     @Autowired
-    private com.bean.Test test;
+    private com.wl.bean.Test test;
 
     @Test
     public void test(){
