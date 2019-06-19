@@ -19,6 +19,9 @@ public class User implements Serializable {
     @NotNull(message = "生日不能为空")
     private String birthday;
 
+    @Email(message = "不是正确的邮箱地址")
+    private String email;
+
     public String getName() {
         return name;
     }
@@ -43,12 +46,21 @@ public class User implements Serializable {
         this.birthday = birthday;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", birthday='" + birthday + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

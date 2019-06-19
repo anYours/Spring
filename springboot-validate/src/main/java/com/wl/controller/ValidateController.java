@@ -1,6 +1,7 @@
-package com.controller;
+package com.wl.controller;
 
 
+import com.annotation.MyAnnotation;
 import com.model.User;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -21,6 +22,7 @@ public class ValidateController {
 
     static Map<String, User> users = Collections.synchronizedMap(new HashMap<String, User>());
 
+    @MyAnnotation
     @PostMapping("/postUser")
     public String postUser(@RequestBody @Valid User user, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
