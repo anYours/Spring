@@ -1,8 +1,8 @@
 package com;
 
-import com.model.ConfigurationPropertiesConfig;
-import com.model.PropertySourceConfig;
-import com.model.ValueConfig;
+import com.wl.model.ConfigurationPropertiesConfig;
+import com.wl.model.PropertySourceConfig;
+import com.wl.model.ValueConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

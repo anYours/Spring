@@ -2,3 +2,10 @@ demo:
   test:
     name: 反杀的弗利萨打输了粉红色达拉反倒是卡后方可打发货单扫
     des: 发货了发票发放大镜大批发的福克斯戴假发谁看得见节点
+myName: wulang
+  secret: ${random.value}
+  number: ${random.int}
+  bignumber: ${random.long}
+  uuid: ${random.uuid}
+  ten: ${random.int(10)}
+  range: ${random.int[1024,65536]}

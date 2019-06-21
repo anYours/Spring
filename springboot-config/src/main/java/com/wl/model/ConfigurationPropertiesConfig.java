@@ -1,15 +1,13 @@
-package com.model;
+package com.wl.model;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ValueConfig {
+@ConfigurationProperties(prefix = "demo.test")
+public class ConfigurationPropertiesConfig {
 
-    @Value("${demo.test.name}")
     private String name;
-
-    @Value("${demo.test.des}")
     private String des;
 
     public String getName() {
@@ -30,7 +28,7 @@ public class ValueConfig {
 
     @Override
     public String toString() {
-        return "ValueConfig{" +
+        return "ConfigurationPropertiesConfig{" +
                 "name='" + name + '\'' +
                 ", des='" + des + '\'' +
                 '}';

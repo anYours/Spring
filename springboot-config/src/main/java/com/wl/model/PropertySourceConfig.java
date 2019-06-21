@@ -1,13 +1,20 @@
-package com.model;
+package com.wl.model;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
+/**
+ * PropertySource用于指定配置文件
+ */
 @Component
-@ConfigurationProperties(prefix = "demo.test")
-public class ConfigurationPropertiesConfig {
+@PropertySource("classpath:test_application.yml")
+public class PropertySourceConfig {
 
+    @Value("${demo.test.name}")
     private String name;
+
+    @Value("${demo.test.des}")
     private String des;
 
     public String getName() {
@@ -28,7 +35,7 @@ public class ConfigurationPropertiesConfig {
 
     @Override
     public String toString() {
-        return "ConfigurationPropertiesConfig{" +
+        return "ValueConfig{" +
                 "name='" + name + '\'' +
                 ", des='" + des + '\'' +
                 '}';

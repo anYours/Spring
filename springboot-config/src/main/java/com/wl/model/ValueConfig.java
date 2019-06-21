@@ -1,12 +1,13 @@
-package com.model;
+package com.wl.model;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
+/**
+ * 访问默认的配置文件中的配置项，强制字段必须对应在配置文件
+ */
 @Component
-@PropertySource("classpath:test_application.yml")
-public class PropertySourceConfig {
+public class ValueConfig {
 
     @Value("${demo.test.name}")
     private String name;
