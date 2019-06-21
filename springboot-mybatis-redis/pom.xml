@@ -29,6 +29,12 @@
             <version>${spring-boot-starter-redis-version}</version>
         </dependency>
 
+        <!-- Spring Boot Data Cache 依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+
         <!-- Spring Boot Web 依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -1,6 +1,6 @@
-package com.service;
+package com.wl.service;
 
-import com.model.City;
+import com.wl.model.City;
 
 public interface CityService {
 

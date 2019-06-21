@@ -1,8 +1,8 @@
-package com.dao;
+package com.wl.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import com.model.City;
+import com.wl.model.City;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

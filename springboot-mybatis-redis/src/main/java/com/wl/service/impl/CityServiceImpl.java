@@ -1,17 +1,14 @@
-package com.service.impl;
+package com.wl.service.impl;
 
-import com.service.CityService;
-import com.dao.CityDao;
-import com.model.City;
+import com.wl.service.CityService;
+import com.wl.dao.CityDao;
+import com.wl.model.City;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
-import java.util.concurrent.TimeUnit;
 
 @Service
 public class CityServiceImpl implements CityService {

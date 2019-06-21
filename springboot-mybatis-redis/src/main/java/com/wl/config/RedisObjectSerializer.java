@@ -1,4 +1,4 @@
-package com.config;
+package com.wl.config;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.serializer.support.DeserializingConverter;

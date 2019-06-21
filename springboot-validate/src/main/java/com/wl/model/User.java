@@ -1,4 +1,4 @@
-package com.model;
+package com.wl.model;
 
 import javax.validation.constraints.*;
 import java.io.Serializable;

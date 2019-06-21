@@ -2,7 +2,7 @@ package com.wl.controller;
 
 
 import com.annotation.MyAnnotation;
-import com.model.User;
+import com.wl.model.User;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;

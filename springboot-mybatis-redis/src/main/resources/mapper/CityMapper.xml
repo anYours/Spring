@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.dao.CityDao">
+<mapper namespace="com.wl.dao.CityDao">
 
-    <resultMap id="BaseResultMap" type="com.model.City">
+    <resultMap id="BaseResultMap" type="com.wl.model.City">
         <result column="id" property="id" />
         <result column="provinceId" property="provinceId" />
         <result column="cityName" property="cityName" />
@@ -27,14 +27,14 @@
         from city
     </select>
 
-    <insert id="saveCity" parameterType="com.model.City" useGeneratedKeys="true" keyProperty="id">
+    <insert id="saveCity" parameterType="com.wl.model.City" useGeneratedKeys="true" keyProperty="id">
 		insert into
 		city(id,provinceId,cityName,description)
 		values
 		(#{id},#{provinceId},#{cityName},#{description})
 	</insert>
 
-    <update id="updateCity" parameterType="com.model.City">
+    <update id="updateCity" parameterType="com.wl.model.City">
         update
         city
         set
