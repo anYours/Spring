@@ -1,0 +1,10 @@
+spring:
+  mail:
+    host: smtp.163.com
+    username: xp_luckly@163.com
+    password: mmp123456
+    default-encoding: utf-8
+mail:
+  fromMail:
+    addr: xp_luckly@163.com
+
