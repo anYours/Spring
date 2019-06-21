@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="/BootStrap/css/bootstrap.css">
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="/BootStrap/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="/BootStrap/js/bootstrap.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/My97DatePicker/WdatePicker.js"></script>
+</head>
+<body>
+<div style="width: 70%;margin:0px auto;height: 25px;margin-top: 8px;">
+    <div><a class="btn btn-primary" href="/book/create" role="button">新增书籍</a></div>
+</div>
+<h2 style="text-align: center;">书籍列表</h2>
+<table class="table" style="width: 70%;margin: 0px auto;">
+    <thead>
+    <tr><td>编号</td><td>书名</td><td>备注</td><td>作者</td><td>售价</td><td>出版日期</td><td>操作</td></tr>
+    </thead>
+    <tbody>
+    <!--/*@thymesVar id="list" type="java"*/-->
+    <tr th:each="book:${bookList}">
+        <td th:text="${book.id}"></td>
+        <td th:text="${book.name}"></td>
+        <td th:text="${book.des}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.sal}"></td>
+        <td th:text="${#dates.format(book.times, 'yyyy-MM-dd')}"></td>
+        <td><a th:href="@{/book/delete/{id}(id=${book.id})}">删除</a><a th:href="@{/book/update/{id}(id=${book.id})}">修改</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
