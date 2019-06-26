@@ -60,9 +60,8 @@ public class MailServiceImpl implements MailService {
             FileSystemResource file = new FileSystemResource(new File(resourcePath));
             helper.addInline(id, file);
             javaMailSender.send(message);
-            System.out.println("带附件的邮件已发送");
         } catch (Exception e) {
-            System.out.println("带附件的邮件发送异常" + e.getMessage());
+            System.out.println("邮件发送异常" + e.getMessage());
         }
     }
 
