@@ -4,21 +4,21 @@ package com.wl.webservice.base;
 import com.wl.webservice.IJzcxWebServicePortType;
 
 /**
- * webService���ӽӿ�
- * 
+ * webService连接接口
+ *
  * @author Shisz
  *
  */
 public interface IWsConnection {
 	/**
-	 * ��������WebService������������
+	 * 创建连接WebService服务器的连接
 	 * @return IFace
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public abstract IJzcxWebServicePortType connection() throws Exception;
-	
+
 	/**
-	 * �ر�����
+	 * 关闭连接
 	 */
 	public abstract void closeConn();
 }
