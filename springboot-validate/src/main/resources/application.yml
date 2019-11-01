@@ -1,0 +1,19 @@
+server:
+  port: 9494
+PopulationBean:
+  FWQQBH: 111
+  QQBWDM: GJXXZX
+  QQBWMC: 国家信息中心
+  SJLYXTDM: 22123456
+  SJLYXTMC: 吉林省数据共享交换平台
+  FSSJ: 20190101010101
+  QQRGMSFHM: 429006199709272412
+  QQRXM: 吴浪
+  QQRDWDM: 2201123456
+  QQRDWMC: 长春市民政局
+  QQYWLXDM: 123456
+  QQYWLXMC: 婚姻登记
+  QQYWXTDM: 220101123456
+  QQYWXTMC: 长春市婚姻登记系统
+  signingkeyInterfaceUrl: http://59.255.105.32:8181/sysapi/auth/refreshappsecret
+  checkUrl: http://localhost:8080/WebService/services/IJzcxWebServiceHttpPort
