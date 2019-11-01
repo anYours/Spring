@@ -30,7 +30,7 @@ public class IJzcxWebService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://59.255.104.184:8989/wsproxy");
+            url = new URL("file:/C:/Users/Lang/Desktop/s_1200000900000_2108(2).wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

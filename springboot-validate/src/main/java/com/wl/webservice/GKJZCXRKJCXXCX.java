@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>anonymous complex typeµÄ Java Àà¡£
+ * <p>anonymous complex typeçš„ Java ç±»ã€‚
  * 
- * <p>ÒÔÏÂÄ£Ê½Æ¬¶ÎÖ¸¶¨°üº¬ÔÚ´ËÀàÖĞµÄÔ¤ÆÚÄÚÈİ¡£
+ * <p>ä»¥ä¸‹æ¨¡å¼ç‰‡æ®µæŒ‡å®šåŒ…å«åœ¨æ­¤ç±»ä¸­çš„é¢„æœŸå†…å®¹ã€‚
  * 
  * <pre>
  * &lt;complexType>
@@ -46,7 +46,7 @@ public class GKJZCXRKJCXXCX {
     protected String in2;
 
     /**
-     * »ñÈ¡in0ÊôĞÔµÄÖµ¡£
+     * è·å–in0å±æ€§çš„å€¼ã€‚
      * 
      * @return
      *     possible object is
@@ -58,7 +58,7 @@ public class GKJZCXRKJCXXCX {
     }
 
     /**
-     * ÉèÖÃin0ÊôĞÔµÄÖµ¡£
+     * è®¾ç½®in0å±æ€§çš„å€¼ã€‚
      * 
      * @param value
      *     allowed object is
@@ -70,7 +70,7 @@ public class GKJZCXRKJCXXCX {
     }
 
     /**
-     * »ñÈ¡in1ÊôĞÔµÄÖµ¡£
+     * è·å–in1å±æ€§çš„å€¼ã€‚
      * 
      * @return
      *     possible object is
@@ -82,7 +82,7 @@ public class GKJZCXRKJCXXCX {
     }
 
     /**
-     * ÉèÖÃin1ÊôĞÔµÄÖµ¡£
+     * è®¾ç½®in1å±æ€§çš„å€¼ã€‚
      * 
      * @param value
      *     allowed object is
@@ -94,7 +94,7 @@ public class GKJZCXRKJCXXCX {
     }
 
     /**
-     * »ñÈ¡in2ÊôĞÔµÄÖµ¡£
+     * è·å–in2å±æ€§çš„å€¼ã€‚
      * 
      * @return
      *     possible object is
@@ -106,7 +106,7 @@ public class GKJZCXRKJCXXCX {
     }
 
     /**
-     * ÉèÖÃin2ÊôĞÔµÄÖµ¡£
+     * è®¾ç½®in2å±æ€§çš„å€¼ã€‚
      * 
      * @param value
      *     allowed object is
